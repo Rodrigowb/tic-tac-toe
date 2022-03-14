@@ -68,6 +68,7 @@ function resetBoard() {
     grid.innerText = '';
     grid.classList.remove('playerX');
     grid.classList.remove('playerO');
+    grid.style.backgroundColor = 'aqua'
   });
 }
 
@@ -95,7 +96,6 @@ function handleResultValidation() {
     const b = board[winCondition[1]];
     const c = board[winCondition[2]];
     // Checking if the game still going
-    // TODO conditions are wrong
     if (a === '' || b === '' || c === '') {
       continue;
     }
@@ -130,6 +130,22 @@ function userAction(grid, index) {
     changePlayer();
   }
 }
+
+// Change the color os the square
+function changeSquareColor(event) {
+  if (isValidAction(event.target) && isGameActive) {
+    if (currentPlayer === 'X') {
+      event.target.style.backgroundColor = 'blue';
+    } else if (currentPlayer === 'O') {
+      event.target.style.backgroundColor = 'red';
+    }
+  }
+}
+
+// Event listener to change the grid color
+grids.forEach(grid => {
+  grid.addEventListener('click', changeSquareColor);
+})
 
 // Event listener for clicks on the grid
 grids.forEach((grid, index) => {
