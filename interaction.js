@@ -29,7 +29,7 @@ const winningConditions = [
   [2, 4, 6],
 ];
 
-// Creating a function to validade the user action (play only in empty grids)
+// Validade the user action (play only in empty grids)
 function isValidAction(grid) {
   if (grid.innerText === 'X' || grid.innerText === 'O') {
     return false;
@@ -43,7 +43,7 @@ function updateBoard(index) {
   board[index] = currentPlayer;
 }
 
-// Create a function to change the player
+// Change the player turn
 function changePlayer() {
   playerDisplay.classList.remove(`player${currentPlayer}`);
   // Change to O if its X and X if its O
@@ -56,14 +56,44 @@ function changePlayer() {
   playerDisplay.classList.add(`player${currentPlayer}`)
 }
 
-// Check if we have a winner
+// Reset the board
+function resetBoard() {
+  board = ['', '', '', '', '', '', '', '', ''];
+  isGameActive = true;
+  announcer.classList.add('hide');
+  if (currentPlayer === 'O') {
+    changePlayer();
+  }
+  grids.forEach(grid => {
+    grid.innerText = '';
+    grid.classList.remove('playerX');
+    grid.classList.remove('playerO');
+  });
+}
+
+// Announce results
+function announce(type) {
+  switch (type) {
+    case oWon:
+      announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+      break;
+    case xWon:
+      announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+      break;
+    case tie:
+      announcer.innerHTML = 'Tie';
+  }
+  announcer.classList.remove('hide');
+}
+
+// Check winner or tie
 function handleResultValidation() {
   let roundWon = false;
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
     const a = board[winCondition[0]];
     const b = board[winCondition[1]];
-    const c = board[winCondition[2]]
+    const c = board[winCondition[2]];
     // Checking if the game still going
     if (a === '' || b === '' || c === '') {
       continue;
@@ -81,7 +111,7 @@ function handleResultValidation() {
   }
 }
 
-// Event handler to update the grid 
+// Update the grid (main function)
 function userAction(grid, index) {
   if (isValidAction(grid) && isGameActive) {
     grid.innerText = currentPlayer;
@@ -96,5 +126,8 @@ function userAction(grid, index) {
 grids.forEach((grid, index) => {
   grid.addEventListener('click', () => userAction(grid, index));
 })
+
+// Event listener to reset the board
+resetButton.addEventListener('click', resetBoard);
 
 // Create the announce function
