@@ -7,7 +7,6 @@ const resetButton = document.querySelector('#reset');
 const announcer = document.querySelector('.announcer');
 
 // Creating the variables for the game
-// TODO: create it danamically
 let board = ['', '', '', '', '', '', '', '', '']
 let currentPlayer = 'X';
 let isGameActive = true;

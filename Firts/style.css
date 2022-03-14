@@ -59,12 +59,10 @@
 }
 /* Styling the players color */
 .playerX{
-  /* color: blueviolet; */
   color: black;
   font-size: 1.5em;
 }
 .playerO{
-  /* color: red; */
   color: black;
   font-size: 1.5em;
 }
