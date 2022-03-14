@@ -98,7 +98,8 @@ function handleResultValidation() {
     // TODO conditions are wrong
     if (a === '' || b === '' || c === '') {
       continue;
-    } else if (a === b || b === c) {
+    }
+    if (a === b && b === c) {
       roundWon = true;
       break;
     }
