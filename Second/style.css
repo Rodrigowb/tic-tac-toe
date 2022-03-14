@@ -1,0 +1,56 @@
+/* Styling the entire page */
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: whitesmoke;
+}
+/* Styling the h tags */
+h1{
+  font-size: 3em;
+  margin: 2%;
+  text-align: center;
+}
+/* Styling the grids */
+.container{
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  max-width: 500px;
+  max-height: 500px;
+  text-align: center;
+}
+.grid{
+  border: 5px solid gray;
+  min-width: 100px;
+  min-height: 100px;
+}
+/* Styling the buttons and turn text */
+.button{
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+.reset{
+  font-size: 2em;
+  padding: 2%;
+  border: 5px solid black;
+  background-color: gray;
+}
+.turn{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+.turn-text{
+  font-size: 2em;
+}
+.result{
+  display: flex;
+  justify-content: center;
+}
+.result-text{
+  font-size: 2em;
+  margin-top: 2%;
+}
