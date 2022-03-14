@@ -50,7 +50,7 @@ function changePlayer() {
   if (currentPlayer === 'O') {
     currentPlayer = 'X';
   } else if (currentPlayer === 'X') {
-    currentPlayer = 'O'
+    currentPlayer = 'O';
   }
   playerDisplay.innerText = currentPlayer;
   playerDisplay.classList.add(`player${currentPlayer}`)
@@ -60,7 +60,7 @@ function changePlayer() {
 function resetBoard() {
   board = ['', '', '', '', '', '', '', '', ''];
   isGameActive = true;
-  announcer.classList.add('hide');
+  announcer.innerHTML = '';
   if (currentPlayer === 'O') {
     changePlayer();
   }
@@ -75,10 +75,10 @@ function resetBoard() {
 function announce(type) {
   switch (type) {
     case oWon:
-      announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+      announcer.innerHTML = 'O is the winner';
       break;
     case xWon:
-      announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+      announcer.innerHTML = 'X is the winner';
       break;
     case tie:
       announcer.innerHTML = 'Tie';
@@ -95,6 +95,7 @@ function handleResultValidation() {
     const b = board[winCondition[1]];
     const c = board[winCondition[2]];
     // Checking if the game still going
+    // TODO conditions are wrong
     if (a === '' || b === '' || c === '') {
       continue;
     } else if (a === b || b === c) {
@@ -103,10 +104,17 @@ function handleResultValidation() {
     }
   }
   if (roundWon) {
-    announce(currentPlayer === 'X' ? xWon : oWon);
-    isGameActive = false;
-    return;
-  } else if (!board.includes('')) {
+    if (currentPlayer === 'X') {
+      announce(xWon);
+      isGameActive = false;
+      return;
+    } else if (currentPlayer === 'O') {
+      announce(oWon);
+      isGameActive = false;
+      return;
+    }
+  }
+  if (!board.includes('')) {
     announce(tie);
   }
 }
@@ -130,4 +138,4 @@ grids.forEach((grid, index) => {
 // Event listener to reset the board
 resetButton.addEventListener('click', resetBoard);
 
-// Create the announce function
+

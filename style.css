@@ -22,9 +22,6 @@
   font-size: 2em;
   margin: 0.5em auto 1em auto;
 }
-.hide{
-  display: hide;
-}
 /* Creating and styling the grid */
 .container{
   margin: 0 auto;
