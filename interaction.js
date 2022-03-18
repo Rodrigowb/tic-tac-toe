@@ -48,8 +48,10 @@ function changePlayer() {
   // Change to O if its X and X if its O
   if (currentPlayer === 'O') {
     currentPlayer = 'X';
+    playerDisplay.style.color = "blue";
   } else if (currentPlayer === 'X') {
     currentPlayer = 'O';
+    playerDisplay.style.color = "red";
   }
   playerDisplay.innerText = currentPlayer;
   playerDisplay.classList.add(`player${currentPlayer}`)
@@ -76,9 +78,11 @@ function announce(type) {
   switch (type) {
     case oWon:
       announcer.innerHTML = 'O is the winner';
+      announcer.style.color = "red";
       break;
     case xWon:
       announcer.innerHTML = 'X is the winner';
+      announcer.style.color = "blue";
       break;
     case tie:
       announcer.innerHTML = 'Tie';
