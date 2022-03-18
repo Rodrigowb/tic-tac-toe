@@ -83,5 +83,9 @@
   .container{
     margin: auto 20px auto 20px;
   }
+  .grid{
+    min-width: 50px;
+    min-height: 100px;
+  }
 }
 
