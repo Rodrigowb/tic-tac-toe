@@ -1,6 +1,4 @@
-console.log('Im live!')
 // Save references to html references
-// Transform the nodeList into an array
 const grids = Array.from(document.querySelectorAll('.grid'));
 const playerDisplay = document.querySelector('.display-player');
 const resetButton = document.querySelector('#reset');
