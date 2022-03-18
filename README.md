@@ -7,7 +7,7 @@ E-mail: <boaventurarodrigo@yahoo.com.br> <br />
 Git hub profile: <https://github.com/Rodrigowb> <br />
 Linkedin profile: <https://www.linkedin.com/in/rodrigowanderleyboaventura> <br />
 # About the game
-The Tic Tac Toe is a game player by to people, one player is the X and the other player is the 0. They play in alternate order and the winner is the player who complete a row, column or diagonal with the same symbol. If no one get it, we have a tie.
+The Tic Tac Toe is a game played by to people, one player is the X and the other player is the 0. They play in alternate order and the winner is the player who complete a row, column or diagonal with the same symbol. If no one get it, we have a tie.
 # Deployment
 <https://rodrigowb.github.io/tic-tac-toe/>
 # Files description
